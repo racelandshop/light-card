@@ -1,5 +1,5 @@
 {
-    "name": "Fan Card",
+    "name": "Light Card",
     "render_readme": true,
-    "filename": "fan-card.js"
+    "filename": "light-card.js"
 }

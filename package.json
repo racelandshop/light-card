@@ -1,7 +1,7 @@
 {
-  "name": "fan-card",
+  "name": "light-card",
   "version": "1.4.0",
-  "description": "Lovelace fan-card",
+  "description": "Lovelace light-card",
   "keywords": [
     "home-assistant",
     "homeassistant",
@@ -10,8 +10,8 @@
     "lovelace",
     "custom-cards"
   ],
-  "module": "fan-card.js",
-  "repository": "git@github.com:racelandshop/fan-card.git",
+  "module": "light-card.js",
+  "repository": "git@github.com:racelandshop/light-card.git",
   "author": "João Nogueira <joao.nogueira@raceland.pt>",
   "license": "MIT",
   "dependencies": {
@@ -19,7 +19,7 @@
     "home-assistant-js-websocket": "^4.5.0",
     "lit": "^2.0.0-rc.2",
     "material": "^0.4.3",
-    "@material/mwc-ripple": "^0.19.1"
+    "@material/mwc-ripple": "0.19.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

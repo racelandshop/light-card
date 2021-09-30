@@ -3,10 +3,10 @@ import typescript from "rollup-plugin-typescript2";
 import babel from "rollup-plugin-babel";
 import serve from "rollup-plugin-serve";
 import { terser } from "rollup-plugin-terser";
-import json from '@rollup/plugin-json';
+import json from "@rollup/plugin-json";
 
 export default {
-  input: ["src/fan-card.ts"],
+  input: ["src/light-card.ts"],
   output: {
     dir: "./dist",
     format: "es",

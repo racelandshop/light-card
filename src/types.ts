@@ -1,8 +1,13 @@
-import { ActionConfig, LovelaceCard, LovelaceCardConfig, LovelaceCardEditor } from 'custom-card-helpers';
+import {
+  ActionConfig,
+  LovelaceCard,
+  LovelaceCardConfig,
+  LovelaceCardEditor,
+} from "custom-card-helpers";
 declare global {
   interface HTMLElementTagNameMap {
-    'fan-card-editor': LovelaceCardEditor;
-    'hui-error-card': LovelaceCard;
+    "light-card-editor": LovelaceCardEditor;
+    "hui-error-card": LovelaceCard;
   }
 }
 

@@ -279,6 +279,10 @@ export class BoilerplateCardEditor
       ha-formfield {
         padding: 0px 10px 0px 20px;
       }
+      div-options {
+        padding: 10px 0px 0px 0px;
+
+      }
     `;
   }
 }

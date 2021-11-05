@@ -4,6 +4,7 @@ import { Ripple } from "@material/mwc-ripple";
 import { LitElement, html, TemplateResult, css, PropertyValues, CSSResultGroup} from "lit";
 import { HassEntity } from "home-assistant-js-websocket";
 import { queryAsync } from "lit-element";
+import { findEntities } from "./././find-entities";
 import { customElement, property, state } from "lit/decorators";
 import { ifDefined } from "lit/directives/if-defined";
 import { classMap } from "lit/directives/class-map";
@@ -16,7 +17,7 @@ import { actionHandler } from "./action-handler-directive";
 import { CARD_VERSION } from "./const";
 import { localize } from "./localize/localize";
 
-const includeDomains = ["switch", "light"];
+// const includeDomains = ["switch", "light"];
 
 console.info(
   `%c  RACELAND-light-card \n%c  ${localize(
@@ -43,32 +44,25 @@ export class BoilerplateCard extends LitElement {
 
   @queryAsync("mwc-ripple") private _ripple!: Promise<Ripple | null>;
 
-  public static getStubConfig(): object{
-    // console.log("states", ha.states, "has type", typeof ha.state)
-    // console.log("kist", ha.states.filter((entity) => includeDomains.includes(entity.entity_id)))
-    // console.log("val", ha.states.filter((entity) => includeDomains.includes(entity.entity_id))[0])
-    //const entity = Object.values(ha.states).filter((entity) => includeDomains.includes(computeDomain(entity.entity_id)))[0];
-    // return Object.values(ha.states).filter( (entity) => includeDomains.includes(entity.entity_id))[0]
+  public static getStubConfig(
+    hass: HomeAssistant,
+    entities: string[],
+    entitiesFallback: string[]
+  ): BoilerplateCardConfig {
+    const includeDomains = ["switch", "light"];
+    const maxEntities = 1;
+    const foundEntities = findEntities(
+      hass,
+      maxEntities,
+      entities,
+      entitiesFallback,
+      includeDomains
+    );
 
-
-  return {
-    "type": "custom:light-card",
-    "entity": "light.raceland",
-    "show_name": true,
-    "show_state": true,
-    "name": "raceland"
+    return { type: "custom:light-card", entity: foundEntities[0] || "" };
   }
 
-
-  }
-
-
-  // const supportedEntities = Object.values(ha.states).filter(
-  //   (entity) =>
-  //       entity.entity_id.indexOf('light.') === 0 &&
-  //       entity.attributes &&
-  //       entity.attributes.supported_color_modes &&
-  //       entity.attributes.supported_color_modes.find((mode) => ['hs', 'rgb', 'xy'].indexOf(mode) !== -1)
+ 
   @property({ attribute: false }) public hass!: HomeAssistant;
   @state() private config!: BoilerplateCardConfig;
 

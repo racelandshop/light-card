@@ -8,16 +8,12 @@ import { findEntities } from "./././find-entities";
 import { customElement, property, state } from "lit/decorators";
 import { ifDefined } from "lit/directives/if-defined";
 import { classMap } from "lit/directives/class-map";
-// import { styleMap } from "lit/directives/style-map";
-// import { LightEntity } from "../../../data/light";
-import { HomeAssistant, hasConfigOrEntityChanged, hasAction, ActionHandlerEvent, handleAction, LovelaceCardEditor, getLovelace, computeStateDomain, computeDomain } from "custom-card-helpers";
+import { HomeAssistant, hasConfigOrEntityChanged, hasAction, ActionHandlerEvent, handleAction, LovelaceCardEditor, getLovelace, computeStateDomain } from "custom-card-helpers";
 import "./editor";
 import type { BoilerplateCardConfig } from "./types";
 import { actionHandler } from "./action-handler-directive";
 import { CARD_VERSION } from "./const";
 import { localize } from "./localize/localize";
-
-// const includeDomains = ["switch", "light"];
 
 console.info(
   `%c  RACELAND-light-card \n%c  ${localize(
@@ -27,20 +23,18 @@ console.info(
   "color: white; font-weight: bold; background: dimgray"
 );
 
-(window as any).customCards = (window as any).customCards || [];
+(window as any).customCards = (window as any).customCards || "", [];
 (window as any).customCards.push({
   type: "light-card",
   name: "light-card",
   preview: true, //IMPORTANTE
   description: "A light card custom card",
 });
-
 @customElement("light-card")
 export class BoilerplateCard extends LitElement {
   public static async getConfigElement(): Promise<LovelaceCardEditor> {
     return document.createElement("light-card-editor");
   }
-
 
   @queryAsync("mwc-ripple") private _ripple!: Promise<Ripple | null>;
 
@@ -58,11 +52,9 @@ export class BoilerplateCard extends LitElement {
       entitiesFallback,
       includeDomains
     );
-
-    return { type: "custom:light-card", entity: foundEntities[0] || "" };
+    return { type: "custom:light-card", entity: foundEntities[0] || "", "show_name": true, "show_state": true, "name": "raceland", "show_preview": true};
   }
 
- 
   @property({ attribute: false }) public hass!: HomeAssistant;
   @state() private config!: BoilerplateCardConfig;
 
@@ -270,7 +262,7 @@ export class BoilerplateCard extends LitElement {
         box-sizing: border-box;
         justify-content: center;
         position: relative;
-        background: rgba(120,120,120,0.7);
+        background: rgba(53,53,53,0.7);
         color: white;
         border-radius: 25px;
         padding-left: 10%;
@@ -278,16 +270,11 @@ export class BoilerplateCard extends LitElement {
         padding-bottom: 8%;
 
       }
-      ha-card:focus {
-        outline: solid;
-        outline-color: white;
-      }
       ha-icon {
         width: 50%;
-        /* border: 2px solid #73AD21; */
         height: auto;
         padding: 0px 0px 0px 0px;
-        color: var(--paper-item-icon-color, #44739e);
+        color: var(--paper-item-icon-color, #fdd835);
         --mdc-icon-size: 100%;
       }
       ha-icon + span {
@@ -307,14 +294,12 @@ export class BoilerplateCard extends LitElement {
         grid-template-columns: 50% 50%;
       }
       .state-div {
-        /* border: 2px solid #73AD21; */
         margin: 5% 0% 10% 0%;
         padding: 0px 0px 0px 0px;
         text-align: left;
         width: 100%;
       }
       .name-div {
-        /* border: 2px solid #73AD21; */
         margin: 30% 25% 0% 0%;
         padding: 9% 0px 0px 0px;
         text-align: left;
@@ -388,17 +373,4 @@ export class BoilerplateCard extends LitElement {
       }
     `;
   }
-  // private _computeBrightness(stateObj: HassEntity | LightEntity): string {
-  //   if (!stateObj.attributes.brightness || !this._config?.state_color) {
-  //     return "";
-  //   }
-  //   const brightness = stateObj.attributes.brightness;
-  //   return `brightness(${(brightness + 245) / 5}%)`;
-  // }
-  // private _computeColor(stateObj: HassEntity | LightEntity): string {
-  //   if (this.config?.state_color && stateObj.attributes.rgb_color) {
-  //     return `rgb(${stateObj.attributes.rgb_color.join(",")})`;
-  //   }
-  //   return "";
-  // }
 }

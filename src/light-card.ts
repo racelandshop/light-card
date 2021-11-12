@@ -52,7 +52,7 @@ export class BoilerplateCard extends LitElement {
       entitiesFallback,
       includeDomains
     );
-    return { type: "custom:light-card", entity: foundEntities[0] || "", "show_name": true, "show_state": true, "name": "raceland", "show_preview": true};
+    return { type: "custom:light-card", entity: foundEntities[0] || "", "show_name": true, "show_state": true, "name": "Raceland", "show_preview": true};
   }
 
   @property({ attribute: false }) public hass!: HomeAssistant;
@@ -251,11 +251,11 @@ export class BoilerplateCard extends LitElement {
     return css`
       ha-card {
         cursor: pointer;
-        display: flex;
+        display: grid;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 4% 0;
+        padding: 10px 0px 10px 40px;
         font-size: 1.2rem;
         width: 100%;
         height: 100%;
@@ -265,72 +265,93 @@ export class BoilerplateCard extends LitElement {
         background: rgba(53,53,53,0.7);
         color: white;
         border-radius: 25px;
-        padding-left: 10%;
-        padding-top: 15%;
-        padding-bottom: 8%;
-
       }
+
       ha-icon {
-        width: 50%;
+        width: 90%;
         height: auto;
-        padding: 0px 0px 0px 0px;
+        padding: 5% 0% 5% 0%;
         color: var(--paper-item-icon-color, #fdd835);
         --mdc-icon-size: 100%;
+        margin: 0% 30% 0% 0%;
       }
+
       ha-icon + span {
-        margin-top: 3%;
-        margin-bottom: 10%;
+        text-align: left;
       }
+      .state {
+        margin: 0% 50% 5% 0%;
+        padding: 0% 100% 5% 0%;
+        text-align: left;
+      }
+
+      span {
+        margin: 5% 50% 0% 0%;
+        padding: 0% 100% 0% 0%;
+      }
+
       ha-icon,
       span {
         outline: none;
       }
+
       .hassbut.state-on {
         background: rgba(255,255,255,0.7);
         color: black;
+        padding: 5px 100px 10px 5px;
+        text-align: center;
       }
+
+      .hassbut.state-off {
+        padding: 5px 100px 10px 5px;
+        text-align: center;
+      }
+
+
       .hassbut {
         display: grid;
-        grid-template-columns: 50% 50%;
       }
+
       .state-div {
-        margin: 5% 0% 10% 0%;
-        padding: 0px 0px 0px 0px;
-        text-align: left;
-        width: 100%;
+        padding: 0% 0% 0% 0%;
       }
+
       .name-div {
-        margin: 30% 25% 0% 0%;
-        padding: 9% 0px 0px 0px;
-        text-align: left;
-        width: 100%;
+        padding: 0% 0% 0% 0%;
       }
+
       .light-icon {
         transform: translate(0%, 0%);
       }
+
       .light-icon.state-on-ceiling-light {
         color: var(--paper-item-icon-active-color, #fdd835);
         animation: shake 0.9s;
         animation-iteration-count: 1;
       }
+
       .light-icon.state-on-floor-lamp {
         color: var(--paper-item-icon-active-color, #fdd835);
         animation: shaker 0.9s;
         animation-iteration-count: 1;
       }
+
       .state-on-light-icon {
         fill: var(--paper-item-icon-active-color, #fdd835);
         animation: shakerd 0.8s;
         transform-origin: center;
       }
+
       .state-on-light-lamp {
         fill: var(--paper-item-icon-active-color, #fdd835);
         animation: shakerdl 0.8s;
         transform-origin: center;
       }
+
       .light-icon.state-unavailable {
         color: var(--state-icon-unavailable-color, #bdbdbd);
       }
+
       @keyframes shake {
         0% { transform: rotate(0deg); }
         10% { transform: rotate(25deg); }
@@ -344,6 +365,7 @@ export class BoilerplateCard extends LitElement {
         90% { transform: rotate(25deg); }
         100% { transform: rotate(0deg); }
       }
+
       @keyframes shaker {
         0% { transform: translate(0px); }
         25% { transform: translate(10px); }
@@ -351,6 +373,7 @@ export class BoilerplateCard extends LitElement {
         75% { transform: translate(10px); }
         100% { transform: translate(0px); }
       }
+
       @keyframes shakerd {
         0% { transform: scale(0.85); }
         20% { transform: scale(1.1); }
@@ -359,6 +382,7 @@ export class BoilerplateCard extends LitElement {
         80% { transform: scale(0.97); }
         100% { transform: scale(1); }
       }
+
       @keyframes shakerdl {
         0% { transform: scale(0.85); }
         20% { transform: scale(1.1); }
@@ -367,6 +391,7 @@ export class BoilerplateCard extends LitElement {
         80% { transform: scale(0.97); }
         100% { transform: scale(1); }
       }
+
       .state {
         font-size: 0.9rem;
         color: var(--secondary-text-color);

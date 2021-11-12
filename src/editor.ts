@@ -252,7 +252,7 @@ export class BoilerplateCardEditor
       }
       ha-formfield {
         padding: 0px 10px 0px 20px;
-        max-width: 300px;
+        max-width: 211px;
       }
       .div-options {
         padding: 10px 0px 0px 0px;

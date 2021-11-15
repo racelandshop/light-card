@@ -268,12 +268,12 @@ export class BoilerplateCard extends LitElement {
       }
 
       ha-icon {
-        width: 90%;
+        width: auto;
         height: auto;
-        padding: 5% 0% 5% 0%;
+        padding: 5% 50% 5% 0%;
         color: var(--paper-item-icon-color, #fdd835);
         --mdc-icon-size: 100%;
-        margin: 0% 30% 0% 0%;
+        margin: 0% 0% 0% 0%;
       }
 
       ha-icon + span {
@@ -286,8 +286,8 @@ export class BoilerplateCard extends LitElement {
       }
 
       span {
-        margin: 5% 50% 0% 0%;
-        padding: 0% 100% 0% 0%;
+        margin: 5% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
       }
 
       ha-icon,
@@ -298,13 +298,13 @@ export class BoilerplateCard extends LitElement {
       .hassbut.state-on {
         background: rgba(255,255,255,0.7);
         color: black;
-        padding: 5px 100px 10px 5px;
-        text-align: center;
+        padding: 5px 50px 10px 5px;
+        text-align: left;
       }
 
       .hassbut.state-off {
-        padding: 5px 100px 10px 5px;
-        text-align: center;
+        padding: 5px 50px 10px 5px;
+        text-align: left;
       }
 
 
@@ -313,11 +313,15 @@ export class BoilerplateCard extends LitElement {
       }
 
       .state-div {
-        padding: 0% 0% 0% 0%;
+        padding: 5px 0px 5px 10px;
+        align-items: left;
       }
 
       .name-div {
-        padding: 0% 0% 0% 0%;
+        /* padding: 0% 0% 0% 0%; */
+        padding: 5px 0px 5px 10px;
+        align-items: left;
+        /* padding: 5px 200px 0px 5px; */
       }
 
       .light-icon {

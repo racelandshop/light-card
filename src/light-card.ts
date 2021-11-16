@@ -257,6 +257,7 @@ export class BoilerplateCard extends LitElement {
         text-align: left;
         padding: 0px 0px 20px 15px;
         margin-bottom: 8px;
+        margin-bottom: 8px;
         font-size: 1.2rem;
         width: 100%;
         height: 100%;

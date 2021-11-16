@@ -251,11 +251,12 @@ export class BoilerplateCard extends LitElement {
     return css`
       ha-card {
         cursor: pointer;
-        display: grid;
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 10px 0px 10px 40px;
+        align-items: left;
+        text-align: left;
+        padding: 0px 0px 20px 15px;
+        margin-bottom: 8px;
         font-size: 1.2rem;
         width: 100%;
         height: 100%;
@@ -265,15 +266,16 @@ export class BoilerplateCard extends LitElement {
         background: rgba(53,53,53,0.7);
         color: white;
         border-radius: 25px;
+        overflow: hidden;
       }
 
       ha-icon {
         width: auto;
         height: auto;
         padding: 5% 50% 5% 0%;
+        margin: 0% 0% 0% 0%;
         color: var(--paper-item-icon-color, #fdd835);
         --mdc-icon-size: 100%;
-        margin: 0% 0% 0% 0%;
       }
 
       ha-icon + span {
@@ -281,13 +283,13 @@ export class BoilerplateCard extends LitElement {
       }
       .state {
         margin: 0% 50% 5% 0%;
-        padding: 0% 100% 5% 0%;
+        padding: 0% 100% 10% 0%;
         text-align: left;
       }
 
       span {
-        margin: 5% 0% 0% 0%;
-        padding: 0% 0% 0% 0%;
+        margin: 5% 50% 1% 0%;
+        padding: 0% 100% 1% 0%;
       }
 
       ha-icon,
@@ -298,30 +300,28 @@ export class BoilerplateCard extends LitElement {
       .hassbut.state-on {
         background: rgba(255,255,255,0.7);
         color: black;
-        padding: 5px 50px 10px 5px;
+        padding: 5% 5% 5% 5%;
         text-align: left;
       }
 
       .hassbut.state-off {
-        padding: 5px 50px 10px 5px;
+        padding: 5% 5% 5% 5%;
         text-align: left;
       }
 
-
       .hassbut {
         display: grid;
+        grid-template-columns: 50% 50%;
       }
 
       .state-div {
-        padding: 5px 0px 5px 10px;
+        padding: 0px 0px 15px 10px;
         align-items: left;
       }
 
       .name-div {
-        /* padding: 0% 0% 0% 0%; */
-        padding: 5px 0px 5px 10px;
+        padding: 15px 0px 0px 10px;
         align-items: left;
-        /* padding: 5px 200px 0px 5px; */
       }
 
       .light-icon {

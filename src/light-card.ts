@@ -186,7 +186,7 @@ export class BoilerplateCard extends LitElement {
 
       return html`
       <svg viewBox="0 0 50 50" height="100%" width="50%">
-  <path fill="#ffffff" d=${this.config.icon[0]} />
+  <path fill="#d3d3d3" d=${this.config.icon[0]} />
   <path class=${classMap({
     "state-on-light-icon":
         ifDefined(stateObj? this.computeActiveState(stateObj) : undefined) === "on",
@@ -256,15 +256,13 @@ export class BoilerplateCard extends LitElement {
         align-items: left;
         text-align: left;
         padding: 0px 0px 20px 15px;
-        margin-bottom: 8px;
-        margin-bottom: 8px;
         font-size: 1.2rem;
         width: 100%;
         height: 100%;
         box-sizing: border-box;
         justify-content: center;
         position: relative;
-        background: rgba(53,53,53,0.7);
+        background: rgba(53,53,53,0.8);
         color: white;
         border-radius: 25px;
         overflow: hidden;
@@ -299,7 +297,7 @@ export class BoilerplateCard extends LitElement {
       }
 
       .hassbut.state-on {
-        background: rgba(255,255,255,0.7);
+        background: rgb(255,255,255);
         color: black;
         padding: 5% 5% 5% 5%;
         text-align: left;

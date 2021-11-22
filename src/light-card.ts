@@ -26,9 +26,9 @@ console.info(
 (window as any).customCards = (window as any).customCards || "", [];
 (window as any).customCards.push({
   type: "light-card",
-  name: "light-card",
+  name: "Carta da Luz",
   preview: true, //IMPORTANTE
-  description: "A light card custom card",
+  description: "Uma carta para a luz",
 });
 @customElement("light-card")
 export class BoilerplateCard extends LitElement {
@@ -136,7 +136,7 @@ export class BoilerplateCard extends LitElement {
           ?this.renderIcon(stateObj)
           : ""}
 
-        <div></div>
+        <div class="divibut"></div>
         ${this.config.show_name
           ? html`
               <div tabindex="-1" class="name-div">${this.config.name}</div>
@@ -185,7 +185,7 @@ export class BoilerplateCard extends LitElement {
     else if (Array.isArray(this.config.icon) === true) {
 
       return html`
-      <svg viewBox="0 0 50 50" height="100%" width="50%">
+      <svg class="svgicon" viewBox="0 0 50 50" height="75%" width="65%">
   <path fill="#d3d3d3" d=${this.config.icon[0]} />
   <path class=${classMap({
     "state-on-light-icon":
@@ -255,8 +255,8 @@ export class BoilerplateCard extends LitElement {
         flex-direction: column;
         align-items: left;
         text-align: left;
-        padding: 0px 0px 20px 15px;
-        font-size: 1.2rem;
+        padding: 10% 10% 10% 10%;
+        font-size: 18px;
         width: 100%;
         height: 100%;
         box-sizing: border-box;
@@ -269,9 +269,9 @@ export class BoilerplateCard extends LitElement {
       }
 
       ha-icon {
-        width: auto;
-        height: auto;
-        padding: 5% 50% 5% 0%;
+        width: 70%;
+        height: 80%;
+        padding-bottom: 15px;
         margin: 0% 0% 0% 0%;
         color: var(--paper-item-icon-color, #fdd835);
         --mdc-icon-size: 100%;
@@ -297,15 +297,16 @@ export class BoilerplateCard extends LitElement {
       }
 
       .hassbut.state-on {
-        background: rgb(255,255,255);
-        color: black;
-        padding: 5% 5% 5% 5%;
         text-align: left;
       }
 
       .hassbut.state-off {
-        padding: 5% 5% 5% 5%;
         text-align: left;
+      }
+
+      .divibut{
+        padding-bottom: 0%;
+        margin-bottom: 0%;
       }
 
       .hassbut {
@@ -314,13 +315,18 @@ export class BoilerplateCard extends LitElement {
       }
 
       .state-div {
-        padding: 0px 0px 15px 10px;
+        padding: 0% 100% 10% 0%;
         align-items: left;
       }
 
       .name-div {
-        padding: 15px 0px 0px 10px;
+        padding: 0% 100% 1% 0%;
         align-items: left;
+      }
+
+      .svgicon{
+        padding: 5% 0% 20% 0%;
+        max-width: 88px;
       }
 
       .light-icon {
@@ -329,14 +335,14 @@ export class BoilerplateCard extends LitElement {
 
       .light-icon.state-on-ceiling-light {
         color: var(--paper-item-icon-active-color, #fdd835);
-        animation: shake 0.9s;
-        animation-iteration-count: 1;
+        /* animation: shake 0.9s;
+        animation-iteration-count: 1; */
       }
 
       .light-icon.state-on-floor-lamp {
         color: var(--paper-item-icon-active-color, #fdd835);
-        animation: shaker 0.9s;
-        animation-iteration-count: 1;
+        /* animation: shaker 0.9s;
+        animation-iteration-count: 1; */
       }
 
       .state-on-light-icon {

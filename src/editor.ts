@@ -126,7 +126,7 @@ export class BoilerplateCardEditor
 
           </div>
           <paper-input-label-8>Escolha o icon: </paper-input-label-8>
-        <paper-dropdown-menu>
+        <paper-dropdown-menu class="dropdown-icon">
           <paper-listbox slot="dropdown-content"
             attr-for-selected="value"
             .configValue=${"icon"}
@@ -227,7 +227,7 @@ export class BoilerplateCardEditor
   static get styles(): CSSResultGroup {
     return css`
       .option {
-        padding: 4px 0px;
+        padding: 3% 0%;
         cursor: pointer;
       }
       .row {
@@ -256,6 +256,9 @@ export class BoilerplateCardEditor
       }
       .div-options {
         padding: 10px 0px 0px 0px;
+      }
+      .dropdown-icon {
+        padding-left: 5%;
       }
     `;
   }

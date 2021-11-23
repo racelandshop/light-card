@@ -26,7 +26,7 @@ console.info(
 (window as any).customCards = (window as any).customCards || "", [];
 (window as any).customCards.push({
   type: "light-card",
-  name: "Carta da Luz",
+  name: "Luz",
   preview: true, //IMPORTANTE
   description: "Uma carta para a luz",
 });

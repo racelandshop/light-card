@@ -111,7 +111,7 @@ export class BoilerplateCardEditor
             .configValue=${"show_name"}
             @change=${this._change}>
           </ha-switch>
-          </ha-formfield>Mostrar nome?
+          </ha-formfield>
 
           <ha-formfield
             .label=${this.hass.localize("ui.panel.lovelace.editor.card.generic.show_state")}
@@ -121,7 +121,7 @@ export class BoilerplateCardEditor
             .configValue=${"show_state"}
             @change=${this._change}>
           </ha-switch>
-          </ha-formfield>Mostrar estado?
+          </ha-formfield>
           <div>
 
           </div>
@@ -255,7 +255,8 @@ export class BoilerplateCardEditor
         max-width: 211px;
       }
       .div-options {
-        padding: 10px 0px 0px 0px;
+        padding-top: 3%;
+
       }
       .dropdown-icon {
         padding-left: 5%;

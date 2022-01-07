@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/camelcase */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { RippleHandlers } from "@material/mwc-ripple/ripple-handlers";
 import { Ripple } from "@material/mwc-ripple";
@@ -335,14 +337,10 @@ export class BoilerplateCard extends LitElement {
 
       .light-icon.state-on-ceiling-light {
         color: var(--paper-item-icon-active-color, #fdd835);
-        /* animation: shake 0.9s;
-        animation-iteration-count: 1; */
       }
 
       .light-icon.state-on-floor-lamp {
         color: var(--paper-item-icon-active-color, #fdd835);
-        /* animation: shaker 0.9s;
-        animation-iteration-count: 1; */
       }
 
       .state-on-light-icon {

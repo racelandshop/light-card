@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/camelcase */
 import { LitElement, html, TemplateResult, css, CSSResultGroup } from "lit";
@@ -111,7 +113,7 @@ export class BoilerplateCardEditor
             .configValue=${"show_name"}
             @change=${this._change}>
           </ha-switch>
-          </ha-formfield>
+          </ha-formfield>Mostrar nome?
 
           <ha-formfield
             .label=${this.hass.localize("ui.panel.lovelace.editor.card.generic.show_state")}
@@ -121,7 +123,7 @@ export class BoilerplateCardEditor
             .configValue=${"show_state"}
             @change=${this._change}>
           </ha-switch>
-          </ha-formfield>
+          </ha-formfield>Mostrar estado?
           <div>
 
           </div>
@@ -255,8 +257,7 @@ export class BoilerplateCardEditor
         max-width: 211px;
       }
       .div-options {
-        padding-top: 3%;
-
+        padding: 10px 0px 0px 0px;
       }
       .dropdown-icon {
         padding-left: 5%;

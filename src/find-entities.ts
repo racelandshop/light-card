@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { HassEntity } from "home-assistant-js-websocket";
 import { HomeAssistant, computeDomain } from "custom-card-helpers";
 

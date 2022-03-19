@@ -16,6 +16,7 @@ import type { BoilerplateCardConfig } from "./types";
 import { actionHandler } from "./action-handler-directive";
 import { CARD_VERSION } from "./const";
 import { localize } from "./localize/localize";
+import "./hui-icon-select-editor"
 
 console.info(
   `%c  RACELAND-light-card \n%c  ${localize(
@@ -24,6 +25,7 @@ console.info(
   "color: orange; font-weight: bold; background: black",
   "color: white; font-weight: bold; background: dimgray"
 );
+
 
 (window as any).customCards = (window as any).customCards || "", [];
 (window as any).customCards.push({
@@ -143,7 +145,7 @@ export class BoilerplateCard extends LitElement {
           ? html`
               <div tabindex="-1" class="name-div">${this.config.name}</div>
             `
-          : ""}
+          : html`<div tabindex="-1" class="name-div"></div>`}
         <div></div>
 
         ${this.config.show_state

@@ -16,8 +16,6 @@ const lamp_icon_top = "M14.1 15.3c3.4-.3 7-.4 10.9-.4 3.8 0 7.5.2 10.9.4.4-.4.7-
 const new_lamp_icon_top = "M38.1 20L35.7 3.8c-.3-1.9-.4-1.7-.6-2-.9-.6-2.3-.7-2.3-.7H17.4s-1.4 0-2.3.7c-.2.3-.3.1-.6 2C14 5.7 11.9 20 11.9 20s5.8.3 13.4.3h0c7.3 0 12.8-.3 12.8-.3z";
 const new_lamp_icon_botton = "M26.5 21.8l3.8-6.1H19.7l3.8 6.1c-5 .7-6.3 5.8-5.7 10.2.7 5.1 3.2 10.1 5.7 14.4H19v2.5h11.8v-2.5h-4.5C29 42 31.4 37 32.1 32c.6-4.4-.6-9.4-5.6-10.2zm3.1 9.1c-.3 4.3-2.3 8.7-4.4 12.4l-.2.1v.1-.1c-1.8-3-3.3-6.4-4.1-9.7-.7-3.1-1-7.2 2.7-8.4 1.4-.5 3.1-.1 4.2.8 1.6 1 1.8 3 1.8 4.8z";
 
-
-const includeDomains = ["switch", "light"];
 @customElement("light-card-editor")
 export class BoilerplateCardEditor
   extends LitElement
@@ -108,12 +106,11 @@ export class BoilerplateCardEditor
         fixedMenuPosition
         naturalMenuWidth>
 
-
         ${['', 'mdi:ceiling-light', 'mdi:floor-lamp']
             .sort()
             .map(
               (icon) =>
-                html` <mwc-list-item value=${icon}><ha-icon .icon=${icon}></ha-icon>${icon.split(":",)[1]}</mwc-list-item>`)}
+                html` <mwc-list-item value=${icon}><ha-icon .icon=${icon}></ha-icon>${icon.split(":")[1]}</mwc-list-item>`)}
 
         <mwc-list-item .value=${[lamp_icon_botton, lamp_icon_top]}>
           <svg viewBox="0 0 50 50" height="24" width="24" >
@@ -131,25 +128,6 @@ export class BoilerplateCardEditor
 
       </icon-select>
     `;
-  }
-
-  private _change(ev: Event): void {
-  if (!this._config || !this.hass) {
-    return;
-  }
-  const target = ev.target! as EditorTarget;
-  const value = target.checked;
-
-  if (this[`_${target.configValue}`] === value) {
-    return;
-  }
-
-  fireEvent(this, "config-changed", {
-    config: {
-      ...this._config,
-      [target.configValue!]: value,
-    },
-  });
   }
 
   private _initialize(): void {
@@ -206,24 +184,9 @@ export class BoilerplateCardEditor
         color: var(--secondary-text-color);
         pointer-events: none;
       }
-      .values {
-        padding-left: 16px;
-        background: var(--secondary-background-color);
-        display: grid;
-      }
-      ha-formfield {
-        padding: 0px 10px 0px 20px;
-        max-width: 211px;
-      }
       icon-select {
         width: 100%;
         height: 120%
-      }
-      .div-options {
-        padding: 10px 0px 0px 0px;
-      }
-      .dropdown-icon {
-        padding-left: 5%;
       }
     `;
   }

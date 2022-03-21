@@ -16,7 +16,7 @@ import type { BoilerplateCardConfig } from "./types";
 import { actionHandler } from "./action-handler-directive";
 import { CARD_VERSION } from "./const";
 import { localize } from "./localize/localize";
-import "./hui-icon-select-editor"
+
 
 console.info(
   `%c  RACELAND-light-card \n%c  ${localize(
@@ -60,6 +60,7 @@ export class BoilerplateCard extends LitElement {
   }
 
   @property({ attribute: false }) public hass!: HomeAssistant;
+
   @state() private config!: BoilerplateCardConfig;
 
   public setConfig(config: BoilerplateCardConfig): void {
@@ -160,6 +161,7 @@ export class BoilerplateCard extends LitElement {
       </ha-card>
     `;
   }
+
   private renderIcon(stateObj) {
     if (typeof this.config.icon === "string") {
       return html`
@@ -190,20 +192,20 @@ export class BoilerplateCard extends LitElement {
 
       return html`
       <svg class="svgicon" viewBox="0 0 50 50" height="75%" width="65%">
-  <path fill="#d3d3d3" d=${this.config.icon[0]} />
-  <path class=${classMap({
-    "state-on-light-icon":
-        ifDefined(stateObj? this.computeActiveState(stateObj) : undefined) === "on",
-      "state-off":
-      ifDefined(stateObj ? this.computeActiveState(stateObj) : undefined) === "off",
-    "state-unavailable":
-      ifDefined(stateObj ? this.computeActiveState(stateObj) : undefined) === "unavailable",
-  }
-      )
-  }
-  d=${this.config.icon[1]} />
+        <path fill="#d3d3d3" d=${this.config.icon[0]} />
+        <path class=${classMap({
+          "state-on-light-icon":
+              ifDefined(stateObj? this.computeActiveState(stateObj) : undefined) === "on",
+            "state-off":
+            ifDefined(stateObj ? this.computeActiveState(stateObj) : undefined) === "off",
+          "state-unavailable":
+            ifDefined(stateObj ? this.computeActiveState(stateObj) : undefined) === "unavailable",
+        }
+            )
+        }
+      d=${this.config.icon[1]} />
 
-</svg>`
+      </svg>`
     }
     return ""
   }
@@ -237,17 +239,10 @@ export class BoilerplateCard extends LitElement {
     return html` ${errorCard} `;
   }
 
-  private computeObjectId = (entityId: string): string =>
-    entityId.substr(entityId.indexOf(".") + 1);
-
-  private computeStateName = (stateObj: HassEntity): string =>
-    stateObj.attributes.friendly_name === undefined
-      ? this.computeObjectId(stateObj.entity_id).replace(/_/g, " ")
-      : stateObj.attributes.friendly_name || "";
-
   private _rippleHandlers: RippleHandlers = new RippleHandlers(() => {
     return this._ripple;
   });
+
   private handleRippleFocus() {
     this._rippleHandlers.startFocus();
   }

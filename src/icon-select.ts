@@ -16,7 +16,6 @@ export class IconSelect extends SelectBase {
         //return html`<span class="mdc-select__icon"><slot name="icon"></slot></span>`;
     }
 
-    //static styles = [styles];
 
     static styles = [
         styles,

@@ -56,7 +56,16 @@ export class BoilerplateCard extends LitElement {
       entitiesFallback,
       includeDomains
     );
-    return { type: "custom:light-card", entity: foundEntities[0] || "", "show_name": true, "show_state": true, "name": "Raceland", "show_preview": true};
+    return {
+      type: "custom:light-card",
+      entity: foundEntities[0] || "",
+      "show_name": true,
+      "show_state": true,
+      "name": "Raceland",
+      "show_preview": true,
+      "show_icon": true,
+      "icon": "mdi:ceiling-light"
+    };
   }
 
   @property({ attribute: false }) public hass!: HomeAssistant;
@@ -72,8 +81,6 @@ export class BoilerplateCard extends LitElement {
     }
 
     this.config = {
-      show_icon: true,
-      icon: "mdi:floor-lamp",
       ...config,
       tap_action: {
         action: "toggle",
@@ -163,7 +170,7 @@ export class BoilerplateCard extends LitElement {
   }
 
   private renderIcon(stateObj) {
-    if (typeof this.config.icon === "string") {
+    if (this.config.icon.split(":")[0] == "mdi") {
       return html`
       <ha-icon
       class="light-icon ${classMap({
@@ -188,24 +195,24 @@ export class BoilerplateCard extends LitElement {
       .icon=${this.config.icon}
     ></ha-icon>`
     }
-    else if (Array.isArray(this.config.icon) === true) {
 
+    else {
       return html`
-      <svg class="svgicon" viewBox="0 0 50 50" height="75%" width="65%">
-        <path fill="#d3d3d3" d=${this.config.icon[0]} />
-        <path class=${classMap({
-          "state-on-light-icon":
-              ifDefined(stateObj? this.computeActiveState(stateObj) : undefined) === "on",
-            "state-off":
-            ifDefined(stateObj ? this.computeActiveState(stateObj) : undefined) === "off",
-          "state-unavailable":
-            ifDefined(stateObj ? this.computeActiveState(stateObj) : undefined) === "unavailable",
-        }
-            )
-        }
-      d=${this.config.icon[1]} />
+        <svg class="svgicon" viewBox="0 0 50 50" height="75%" width="65%">
+          <path fill="#d3d3d3" d=${this.config?.icon.split(":")[0]} />
+          <path class=${classMap({
+            "state-on-light-icon":
+                ifDefined(stateObj? this.computeActiveState(stateObj) : undefined) === "on",
+              "state-off":
+              ifDefined(stateObj ? this.computeActiveState(stateObj) : undefined) === "off",
+            "state-unavailable":
+              ifDefined(stateObj ? this.computeActiveState(stateObj) : undefined) === "unavailable",
+          }
+              )
+          }
+        d=${this.config.icon.split(":")[1]} />
 
-      </svg>`
+        </svg>`
     }
     return ""
   }

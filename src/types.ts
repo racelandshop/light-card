@@ -21,8 +21,9 @@ export interface BoilerplateCardConfig extends LovelaceCardConfig {
   tap_action?: ActionConfig;
   hold_action?: ActionConfig;
   double_tap_action?: ActionConfig;
-  icon?;
+  icon: string;
 }
+
 export interface EditorTarget extends EventTarget {
   value?: string;
   index?: number;

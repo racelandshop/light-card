@@ -1,7 +1,7 @@
 import { SelectBase } from "@material/mwc-select/mwc-select-base";
 import { styles } from "@material/mwc-select/mwc-select.css";
 import { html, nothing, css } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import { debounce } from "./utils/debouce";
 import { nextRender } from "./utils/render-status";
 
@@ -9,12 +9,21 @@ import { nextRender } from "./utils/render-status";
 export class IconSelect extends SelectBase {
 
   protected renderLeadingIcon() {
-      if (!this.value) {
-          return nothing;
-      }
-      return html`<span class="mdc-select__icon"><ha-icon .icon=${this.value}></ha-icon></span>`;
-      //return html`<span class="mdc-select__icon"><slot name="icon"></slot></span>`;
+    if (!this.value) {
+        return nothing;
     }
+
+    if (this.value.split(":")[0] == "mdi") {
+      return html`<span class="mdc-select__icon"><ha-icon .icon=${this.value}></ha-icon></span>`;
+    } else {
+      return html`<span class="mdc-select__icon">
+          <svg viewBox="0 0 50 50" height="24" width="24" >
+            <path fill="#d3d3d3" d=${this.value.split(":")[0]}/>
+            <path d=${this.value.split(":")[1]}/>
+          </svg>
+        </span>`;
+      }
+  }
 
 
     static styles = [

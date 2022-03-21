@@ -99,10 +99,9 @@ export class BoilerplateCardEditor
       <icon-select
         .label=${"Icon"}
         .configValue=${"icon"}
-        .value=${this._config?.icon|| "mdi:ceiling-light"}
+        .value=${this._config?.icon || ""}
         @selected=${this._changed_icon}
         @closed=${(e) => e.stopPropagation()}
-
         fixedMenuPosition
         naturalMenuWidth>
 
@@ -112,14 +111,14 @@ export class BoilerplateCardEditor
               (icon) =>
                 html` <mwc-list-item value=${icon}><ha-icon .icon=${icon}></ha-icon>${icon.split(":")[1]}</mwc-list-item>`)}
 
-        <mwc-list-item .value=${[lamp_icon_botton, lamp_icon_top]}>
+        <mwc-list-item .value=${lamp_icon_botton + ":" + lamp_icon_top}>
           <svg viewBox="0 0 50 50" height="24" width="24" >
               <path fill="#d3d3d3" d=${lamp_icon_botton}/>
               <path d=${lamp_icon_top}/>
           </svg>${localize("editor.custom_icons.lamp_icon")}
         </mwc-list-item>
 
-        <mwc-list-item .value=${[new_lamp_icon_botton, new_lamp_icon_top]}>
+        <mwc-list-item .value=${new_lamp_icon_botton + ":" + new_lamp_icon_top}>
           <svg viewBox="0 0 50 50" height="24" width="24" >
               <path fill="#d3d3d3" d=${new_lamp_icon_botton}/>
               <path d=${new_lamp_icon_top}/>
@@ -157,6 +156,7 @@ export class BoilerplateCardEditor
   };
 
   private _changed_icon(ev): void {
+
     const value = ev.target.value;
     const config = { ...this._config, icon: value }
     fireEvent(this, "config-changed", { config: config});

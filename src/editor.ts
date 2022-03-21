@@ -98,8 +98,8 @@ export class BoilerplateCardEditor
 
       <icon-select
         .label=${"Icon"}
-        .configValue=${""}
-        .value=${this.iconValue || "default"}
+        .configValue=${"icon"}
+        .value=${this._config?.icon|| "mdi:ceiling-light"}
         @selected=${this._changed_icon}
         @closed=${(e) => e.stopPropagation()}
 

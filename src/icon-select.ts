@@ -8,12 +8,12 @@ import { nextRender } from "./utils/render-status";
 @customElement("icon-select")
 export class IconSelect extends SelectBase {
 
-    protected renderLeadingIcon() {
-        if (!this.value) {
-            return nothing;
-        }
-        return html`<span class="mdc-select__icon"><ha-icon .icon=${this.value}></ha-icon></span>`;
-        //return html`<span class="mdc-select__icon"><slot name="icon"></slot></span>`;
+  protected renderLeadingIcon() {
+      if (!this.value) {
+          return nothing;
+      }
+      return html`<span class="mdc-select__icon"><ha-icon .icon=${this.value}></ha-icon></span>`;
+      //return html`<span class="mdc-select__icon"><slot name="icon"></slot></span>`;
     }
 
 

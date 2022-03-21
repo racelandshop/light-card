@@ -181,7 +181,6 @@ export class BoilerplateCardEditor
   private _changed_icon(ev): void {
     const value = ev.target.value;
     const config = { ...this._config, icon: value }
-    console.log(config)
     fireEvent(this, "config-changed", { config: config});
   }
 
